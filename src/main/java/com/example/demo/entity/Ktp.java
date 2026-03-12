@@ -11,7 +11,6 @@ public class Ktp {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true)
     private String nomorKtp;
 
     private String namaLengkap;
@@ -22,54 +21,23 @@ public class Ktp {
 
     private String jenisKelamin;
 
-    public Ktp() {
-    }
+    public Ktp() {}
 
-    public Integer getId() {
-        return id;
-    }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public String getNomorKtp() { return nomorKtp; }
+    public void setNomorKtp(String nomorKtp) { this.nomorKtp = nomorKtp; }
 
-    public String getNomorKtp() {
-        return nomorKtp;
-    }
+    public String getNamaLengkap() { return namaLengkap; }
+    public void setNamaLengkap(String namaLengkap) { this.namaLengkap = namaLengkap; }
 
-    public void setNomorKtp(String nomorKtp) {
-        this.nomorKtp = nomorKtp;
-    }
+    public String getAlamat() { return alamat; }
+    public void setAlamat(String alamat) { this.alamat = alamat; }
 
-    public String getNamaLengkap() {
-        return namaLengkap;
-    }
+    public LocalDate getTanggalLahir() { return tanggalLahir; }
+    public void setTanggalLahir(LocalDate tanggalLahir) { this.tanggalLahir = tanggalLahir; }
 
-    public void setNamaLengkap(String namaLengkap) {
-        this.namaLengkap = namaLengkap;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
-    }
-
-    public LocalDate getTanggalLahir() {
-        return tanggalLahir;
-    }
-
-    public void setTanggalLahir(LocalDate tanggalLahir) {
-        this.tanggalLahir = tanggalLahir;
-    }
-
-    public String getJenisKelamin() {
-        return jenisKelamin;
-    }
-
-    public void setJenisKelamin(String jenisKelamin) {
-        this.jenisKelamin = jenisKelamin;
-    }
+    public String getJenisKelamin() { return jenisKelamin; }
+    public void setJenisKelamin(String jenisKelamin) { this.jenisKelamin = jenisKelamin; }
 }
