@@ -18,6 +18,12 @@ public class KtpServiceImpl implements KtpService {
 
     @Override
     public Ktp create(Ktp ktp) {
+
+        repository.findByNomorKtp(ktp.getNomorKtp())
+                .ifPresent(k -> {
+                    throw new RuntimeException("Nomor KTP already exists");
+                });
+
         return repository.save(ktp);
     }
 
@@ -28,13 +34,18 @@ public class KtpServiceImpl implements KtpService {
 
     @Override
     public Ktp getById(Integer id) {
-        return repository.findById(id).orElseThrow();
+
+        return repository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Data not found"));
     }
 
     @Override
     public Ktp update(Integer id, Ktp ktp) {
 
-        Ktp existing = repository.findById(id).orElseThrow();
+        Ktp existing = repository.findById(id)
+                .orElseThrow(() ->
+                        new RuntimeException("Data not found"));
 
         existing.setNomorKtp(ktp.getNomorKtp());
         existing.setNamaLengkap(ktp.getNamaLengkap());
@@ -47,6 +58,11 @@ public class KtpServiceImpl implements KtpService {
 
     @Override
     public void delete(Integer id) {
+
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Data not found");
+        }
+
         repository.deleteById(id);
     }
 }
