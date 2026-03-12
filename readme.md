@@ -162,8 +162,6 @@ screenshots/api.png
 screenshots/web.png  
 screenshots/project.png
 
-Add images in README if needed.
-
 
 ## Repository
 
