@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import com.example.demo.entity.Ktp;
 import com.example.demo.service.KtpService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/ktp")
 public class KtpController {
